@@ -18,17 +18,17 @@ export function TaskList() {
     // Crie uma nova task com um id random, não permita criar caso o título seja vazio.
 
     if (!newTaskTitle) {
-      console.log('digite algo')
-      return
+      console.log('digite algo');
+      return;
     }
 
     const newTask = {
       id: Math.random(),
       title: newTaskTitle,
       isComplete: false,
-    }
+    };
 
-    setTasks([...tasks, newTask])
+    setTasks([...tasks, newTask]);
 
     setNewTaskTitle('');
   }
@@ -37,7 +37,8 @@ export function TaskList() {
     // Altere entre `true` ou `false` o campo `isComplete` de uma task com dado ID
 
     const markedTask = tasks.map(task => task.id == id ? {
-      ...task, isComplete: !task.isComplete
+      ...task,
+      isComplete: !task.isComplete
     } : task);
 
     setTasks(markedTask);
@@ -46,7 +47,7 @@ export function TaskList() {
   function handleRemoveTask(id: number) {
     // Remova uma task da listagem pelo ID
 
-    setTasks([...tasks.filter(task => task.id !== id)])
+    setTasks([...tasks.filter(task => task.id !== id)]);
   }
 
   return (
